@@ -3,19 +3,19 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-// 导入 Context Providers（你已经创建）
-import { AuthProvider } from './context/AuthContext'
-import { BlogProvider } from './context/BlogContext'
-import { ProjectProvider } from './context/ProjectContext'
+// 临时注释掉 Context Providers，先保证部署成功
+// import { AuthProvider } from './context/AuthContext'
+// import { BlogProvider } from './context/BlogContext'
+// import { ProjectProvider } from './context/ProjectContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
+    {/* <AuthProvider>
       <BlogProvider>
-        <ProjectProvider>
+        <ProjectProvider> */}
           <App />
-        </ProjectProvider>
+        {/* </ProjectProvider>
       </BlogProvider>
-    </AuthProvider>
+    </AuthProvider> */}
   </StrictMode>
 )

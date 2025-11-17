@@ -1,27 +1,13 @@
-import React, { createContext, useState, useEffect } from 'react';
+// src/context/AuthContext.js
+import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // 登录函数
-  const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem('user', JSON.stringify(userData));
-  };
-
-  // 登出函数
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
-  };
-
-  // 页面刷新读取本地存储
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) setUser(JSON.parse(storedUser));
-  }, []);
+  const login = (userData) => setUser(userData);
+  const logout = () => setUser(null);
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
@@ -29,3 +15,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
